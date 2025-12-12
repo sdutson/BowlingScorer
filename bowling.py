@@ -57,7 +57,7 @@ def get_frame_values(frame_num: int) -> tuple[int, int]:
     
     # Get second delivery value.
     delivery_two = input("\nEnter number of pins knocked down on second bowl: ")
-    while not is_valid(delivery_two) or int(delivery_two) > 10 - delivery_one: # TODO: Make sure this cast won't cause any errors.  
+    while not is_valid(delivery_two) or int(delivery_two) > 10 - delivery_one: 
         print(f"Invalid input. Input must be an integer in the range [0, {10 - delivery_one}].")
         delivery_two = input("Enter number of pins knocked down on second bowl: ")
     delivery_two = int(delivery_two)
