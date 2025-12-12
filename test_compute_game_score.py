@@ -1,5 +1,5 @@
 import unittest
-from bowling import compute_game_score  # make sure bowling.py is in same folder
+from bowling import compute_game_score
 
 class TestComputeGameScoreEdgeCases(unittest.TestCase):
 
