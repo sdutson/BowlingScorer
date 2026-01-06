@@ -9,7 +9,7 @@ def is_valid(delivery_value: str) -> bool:
     :return: True if the param string is valid, false otherwise. 
     :rtype: bool
     """
-    return delivery_value.isdigit() and 0 <= int(delivery_value) <= 10
+    return delivery_value.strip().isdigit() and 0 <= int(delivery_value) <= 10
 
 def is_strike(frame: tuple[int, int]) -> bool:
     """
@@ -45,7 +45,7 @@ def get_frame_values(frame_num: int) -> tuple[int, int]:
     """
     print(f"\n\nFrame: #{frame_num}")
     # Get first delivery value. 
-    delivery_one = input("\nEnter number of pins knocked down on first bowl: ")
+    delivery_one = input("\nEnter number of pins knocked down on the first bowl: ")
     while not is_valid(delivery_one): 
         print("Invalid input. Input must be an integer in the range [0, 10].")
         delivery_one = input("Enter number of pins knocked down on first bowl: ")
@@ -56,7 +56,7 @@ def get_frame_values(frame_num: int) -> tuple[int, int]:
         return (delivery_one, 0) # Strike!
     
     # Get second delivery value.
-    delivery_two = input("\nEnter number of pins knocked down on second bowl: ")
+    delivery_two = input("\nEnter number of pins knocked down on the second bowl: ")
     while not is_valid(delivery_two) or int(delivery_two) > 10 - delivery_one: 
         print(f"Invalid input. Input must be an integer in the range [0, {10 - delivery_one}].")
         delivery_two = input("Enter number of pins knocked down on second bowl: ")
@@ -110,4 +110,4 @@ if __name__ == "__main__":
         print(f"\n\nYour game score is: {compute_game_score(frame_values)}")
         # Ask the user if they want to play another game. 
         response = input("Would you like to play another game?(y for yes, n for no): ")
-        running = (response == "n")
+        running = (response == "y")
